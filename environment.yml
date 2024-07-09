@@ -1,0 +1,21 @@
+name: ocr-server-cpu
+channels:
+  - conda-forge
+dependencies:
+  - python==3.10
+  - pip
+  - pip:
+    - opencv-contrib-python
+    - opencv-python
+    - paddlepaddle
+    - paddleocr
+    - paddle2onnx
+    - onnxruntime
+    - fastapi
+    - uvicorn[standard]
+    - pydantic
+    - pyyaml
+    - jsonschema
+    - httpx
+    - gunicorn[gevent]
+    - requests

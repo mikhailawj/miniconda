@@ -3,7 +3,7 @@
 set -e
 
 IMAGE_NAME=miniconda3
-ENV_NAME=image-converter
+ENV_NAME=ocr-server-cpu
 
 docker rm -f dummy
 docker create --name dummy ${IMAGE_NAME}

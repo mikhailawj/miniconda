@@ -7,11 +7,8 @@ The dockerfile contains instructions to:
 1. Create conda env
 
 ```bash
-# Example conda create command
-conda create --name image-converter "python==3.11" fastapi uvicorn-standard jsonschema cairosvg pillow pytest requests -c conda-forge
-
-# PIP Installs if needed
-conda run --name image-converter pip install pillow-heif==0.16.0
+# Using environment.yml
+conda env create -f environment.yml
 ```
 
 2. conda-pack the conda env
