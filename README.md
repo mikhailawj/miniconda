@@ -7,15 +7,15 @@ The dockerfile contains instructions to:
 1. Create conda env
 
 ```bash
-# Using environment.yml
-conda env create -f environment.yml
+# Using <some_env_name>.yml
+conda env create -f <some_env_name>.yml
 ```
 
 2. conda-pack the conda env
 
-## Run build.sh and start.sh
+## Run build_and_start.sh with --build-arg=`some_env_name`
 
-start.sh will output the conda env into a .tar.gz file in local dir
+`build_and_start.sh` will output the conda env into a .tar.gz file in local dir
 
 ## On the offline machine
 
