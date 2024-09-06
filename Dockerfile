@@ -1,5 +1,7 @@
 FROM --platform=linux/amd64 continuumio/miniconda3
 
+ENV PYTHONNOUSERSITE=True
+
 ARG env_name
 
 COPY ./${env_name}.yml ./${env_name}.yml

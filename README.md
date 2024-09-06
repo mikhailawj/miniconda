@@ -2,20 +2,14 @@
 
 ## Prepare Dockerfile with Conda install instruction
 
-The dockerfile contains instructions to:
-
-1. Create conda env
-
-```bash
-# Using <some_env_name>.yml
-conda env create -f <some_env_name>.yml
-```
-
-2. conda-pack the conda env
+The dockerfile contains instructions to create conda env and conda-pack the conda env
 
 ## Run build_and_start.sh with --build-arg=`some_env_name`
 
 `build_and_start.sh` will output the conda env into a .tar.gz file in local dir
+
+    - Python version needs to be 3.10 for compatibility with Triton Docker
+    - pip installs via `requirements.txt` should be put into the `env.yml` file under the pip section
 
 ## On the offline machine
 
@@ -31,5 +25,10 @@ tar -xzf m-ws.tar.gz --one-top-level
 3. conda activate then run `conda-unpack`
 
 ```bash
+conda activate <environment>
 conda-unpack
 ```
+
+## For use in Triton Server
+
+Simply transfer the packed `.tar.gz` file into the model repo
