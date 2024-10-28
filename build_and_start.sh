@@ -2,8 +2,14 @@
 
 set -e
 
+if [ -z "${1}" ]; then
+    echo "no ENV_NAME specified. please specify one. Exiting..."
+    exit 1
+else
+    ENV_NAME=${1}
+fi
+
 IMAGE_NAME=miniconda3
-ENV_NAME=ocr-server-cpu
 
 docker build -t ${IMAGE_NAME} --build-arg env_name=${ENV_NAME} .
 
