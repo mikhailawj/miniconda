@@ -17,7 +17,7 @@ ENV PYTHONNOUSERSITE=True
 RUN conda install --name base conda-pack -c conda-forge -y
 
 COPY ./${env_name}.yml ./${env_name}.yml
-RUN conda env create -f ${env_name}.yml
+RUN conda env create --file ${env_name}.yml
 
 # PIP INSTALLS (IF NEEDED)
 # ENV PATH=/opt/conda/envs/${env_name}/bin:$PATH \
@@ -25,6 +25,9 @@ RUN conda env create -f ${env_name}.yml
 
 # RUN pip install torch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cpu && \
 #     pip install --no-cache-dir inplace-abn==1.1.0
+
+# CUSTOM COMMANDS
+# RUN python -m spacy download en_core_web_trf
 
 # FINALLY CONDA-PACK
 RUN conda-pack --name ${env_name} -o /${env_name}.tar.gz
